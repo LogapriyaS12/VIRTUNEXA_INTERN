@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Portfolio Showcase</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Navbar */
+    #navbar {
+      background: #333;
+      color: #fff;
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    #navbar ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    #navbar ul li {
+      margin: 0 1rem;
+    }
+
+    #navbar ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    #navbar ul li a:hover {
+      color: #ff6347;
+    }
+
+    /* Sections */
+    .section {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .section h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .section p {
+      font-size: 1.2rem;
+      color: #555;
+    }
+
+    /* Project Grid */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1rem;
+      padding: 2rem;
+    }
+
+    .project-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: scale(1.05);
+    }
+
+    .project-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .project-info {
+      position: absolute;
+      bottom: -100%;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.8);
+      color: #fff;
+      padding: 1rem;
+      transition: bottom 0.3s ease;
+    }
+
+    .project-card:hover .project-info {
+      bottom: 0;
+    }
+
+    /* Filter Buttons */
+    .filter-buttons {
+      margin-bottom: 2rem;
+    }
+
+    .filter-btn {
+      background: #333;
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1rem;
+      margin: 0 0.5rem;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+
+    .filter-btn.active {
+      background: #ff6347;
+    }
+
+    .filter-btn:hover {
+      background: #555;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .project-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav id="navbar">
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- About Section -->
+  <section id="about" class="section">
+    <h1>About Me</h1>
+    <p>
+      Hi, I'm Jane Doe, a passionate web developer with a focus on creating interactive and user-friendly websites. 
+      I specialize in front-end development using HTML, CSS, and JavaScript, and I have experience working with 
+      frameworks like React.js and Tailwind CSS. I love turning ideas into reality through clean, efficient, 
+      and responsive designs. When I'm not coding, you can find me exploring new technologies, contributing to 
+      open-source projects, or enjoying a good cup of coffee.
+    </p>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="section">
+    <h1>My Projects</h1>
+    <div class="filter-buttons">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="web">Web</button>
+      <button class="filter-btn" data-filter="design">Design</button>
+      <button class="filter-btn" data-filter="mobile">Mobile</button>
+    </div>
+    <div class="project-grid">
+      <!-- Web Project 1 -->
+      <div class="project-card" data-category="web">
+        <img src="https://m.media-amazon.com/images/I/81tUn5x5T-L._SL1500_.jpg" alt="Web Project 1">
+        <div class="project-info">
+          <h3>E-Commerce Website</h3>
+          <p>
+            A fully responsive e-commerce website built with HTML, CSS, and JavaScript. Features include 
+            product filtering, a shopping cart, and smooth animations.
+          </p>
+        </div>
+      </div>
+
+      <!-- Design Project 1 -->
+      <div class="project-card" data-category="design">
+        <img src="https://lh4.googleusercontent.com/proxy/URaxe3YrnWh49Rr1WBrPDiDuCcsU-FwYI96fbHJ9kXTip6hx0VCtEdH7BOA7O8e5mvMiIyMOxlDTopRq1uStyd9V7v19WgAd" alt="Design Project 1">
+        <div class="project-info">
+          <h3>Mobile App UI/UX Design</h3>
+          <p>
+            A modern and intuitive UI/UX design for a fitness tracking app. Created using Figma, with a focus 
+            on user experience and accessibility.
+          </p>
+        </div>
+      </div>
+
+      <!-- Mobile Project 1 -->
+      <div class="project-card" data-category="mobile">
+        <img src="https://via.placeholder.com/300" alt="Mobile Project 1">
+        <div class="project-info">
+          <h3>Task Manager App</h3>
+          <p>
+            A cross-platform task manager app built with React Native. Allows users to create, update, and 
+            organize tasks with ease.
+          </p>
+        </div>
+      </div>
+
+      <!-- Web Project 2 -->
+      <div class="project-card" data-category="web">
+        <img src="https://via.placeholder.com/300" alt="Web Project 2">
+        <div class="project-info">
+          <h3>Portfolio Website</h3>
+          <p>
+            A personal portfolio website showcasing my projects and skills. Built with HTML, CSS, and 
+            JavaScript, with smooth scrolling and dynamic filtering.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <h1>Contact Me</h1>
+    <p>
+      If you'd like to collaborate or just say hello, feel free to reach out! You can email me at 
+      <a href="mailto:jane.abc09@gmail.com">jane.doe@example.com</a> or connect with me on 
+      <a href="https://linkedin.com/in/abc" target="_blank">LinkedIn</a>.
+    </p>
+  </section>
+
+  <script>
+    // Smooth Scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Dynamic Filtering
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Remove active class from all buttons
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        // Add active class to the clicked button
+        button.classList.add('active');
+
+        const filter = button.getAttribute('data-filter');
+
+        projectCards.forEach(card => {
+          if (filter === 'all' || card.getAttribute('data-category') === filter) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
